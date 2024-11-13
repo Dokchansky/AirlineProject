@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AirlineProject.Windows;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -27,11 +28,15 @@ namespace AirlineProject
 
         private void LoginClick(object sender, RoutedEventArgs e)
         {
-
+            Hide();
+            AuthWindow authWindow = new AuthWindow();
+            authWindow.Show();
         }
         private void RegisterClick(object sender, RoutedEventArgs e)
-        { 
-
+        {
+            Hide();
+            RegisterWindow registerWindow = new RegisterWindow();
+            registerWindow.Show();
 
         }
     }
