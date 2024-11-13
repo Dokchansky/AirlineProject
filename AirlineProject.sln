@@ -5,6 +5,13 @@ VisualStudioVersion = 17.8.34330.188
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AirlineProject", "AirlineProject\AirlineProject.csproj", "{219872AA-CB26-48C0-B7F3-65B0A693C463}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Элементы решения", "Элементы решения", "{83A52874-6450-4AD4-8D6B-1E72C7080E8C}"
+	ProjectSection(SolutionItems) = preProject
+		airlineproject_db.db = airlineproject_db.db
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AirlineProject.Infrastructure", "AirlineProject.Infrastructure\AirlineProject.Infrastructure.csproj", "{4C1119C2-2A61-4A88-9D32-B35CB5147B69}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +22,10 @@ Global
 		{219872AA-CB26-48C0-B7F3-65B0A693C463}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{219872AA-CB26-48C0-B7F3-65B0A693C463}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{219872AA-CB26-48C0-B7F3-65B0A693C463}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4C1119C2-2A61-4A88-9D32-B35CB5147B69}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4C1119C2-2A61-4A88-9D32-B35CB5147B69}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4C1119C2-2A61-4A88-9D32-B35CB5147B69}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4C1119C2-2A61-4A88-9D32-B35CB5147B69}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
