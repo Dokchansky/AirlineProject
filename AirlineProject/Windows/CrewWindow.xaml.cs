@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,36 +15,18 @@ using System.Windows.Shapes;
 namespace AirlineProject.Windows
 {
     /// <summary>
-    /// Логика взаимодействия для RouteWindow.xaml
+    /// Логика взаимодействия для CrewWindow.xaml
     /// </summary>
-    public partial class RouteWindow : Window
+    public partial class CrewWindow : Window
     {
-        public RouteWindow()
+        public CrewWindow()
         {
             InitializeComponent();
-            LoadRoutes();
-
         }
+
         private void exitbutton_Click(object sender, RoutedEventArgs e)
         {
-            Hide();
-            UserWindow userWindow = new UserWindow();
-            Close();
-            userWindow.Show();
+
         }
-
-        
-
-      
-
-        private void LoadRoutes()
-        {
-            using (var context = new Context())
-            {
-                var items = context.Routes.ToList();
-                RouteGrid.ItemsSource = items;
-            }
-        }
-
     }
 }

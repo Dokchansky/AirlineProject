@@ -10,7 +10,7 @@
         Title="Главное меню" Height="450" Width="800">
     <Grid>
         <StackPanel Height="50" VerticalAlignment="Center"  Margin="316,0,316,0">
-            <Button Content="Авторизация" Click="LoginClick" Height="32" FontSize="16" FontFamily="Gill Sans Ultra Bold Condensed" Foreground="BlueViolet" Width="131"/>
+            <Button Content="Авторизация" Click="LoginClick" Height="32" FontSize="16" FontFamily="Gill Sans Ultra Bold Condensed" Style="{DynamicResource MaterialDesignRaisedButton}" Width="146"/>
         </StackPanel>
         <TextBlock Height="50" Width="185" VerticalAlignment="Top"  Margin="308,242,308,0">
             <Hyperlink Click="RegisterClick">

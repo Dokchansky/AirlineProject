@@ -1,4 +1,4 @@
-﻿// Создание кода T4 для модели "C:\Users\tigri\Source\Repos\AirlineProject2525\AirlineProject\Context.edmx" включено. 
+﻿// Создание кода T4 для модели "C:\Users\tigri\Source\Repos\AirlineProject62\AirlineProject\Context.edmx" включено. 
 // Чтобы включить формирование кода прежних версий, измените значение свойства "Стратегия создания кода" конструктора
 // на "Legacy ObjectContext". Это свойство доступно в окне "Свойства", если модель
 // открыта в конструкторе.

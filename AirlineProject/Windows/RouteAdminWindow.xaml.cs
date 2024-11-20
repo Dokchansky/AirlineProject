@@ -15,36 +15,39 @@ using System.Windows.Shapes;
 namespace AirlineProject.Windows
 {
     /// <summary>
-    /// Логика взаимодействия для UserWindow.xaml
+    /// Логика взаимодействия для RouteAdminWindow.xaml
     /// </summary>
-    public partial class UserWindow : Window
+    public partial class RouteAdminWindow : Window
     {
-        public UserWindow()
+        public RouteAdminWindow()
         {
             InitializeComponent();
+            LoadRoutes();
         }
 
         private void exitbutton_Click(object sender, RoutedEventArgs e)
         {
             Hide();
-            MainWindow mainWindow = new MainWindow();
-            Close();
-            mainWindow.Show();
+            return;
         }
 
-        private void flight_Click(object sender, RoutedEventArgs e)
+        private void addbutton_Click(object sender, RoutedEventArgs e)
         {
-             Hide();
-             RouteWindow routeWindow = new RouteWindow();
-             Close();
-             routeWindow.Show();  
+
         }
 
-        private void crew_Click(object sender, RoutedEventArgs e)
+        private void deletebutton_Click(object sender, RoutedEventArgs e)
         {
-            
 
+        }
 
+        private void LoadRoutes()
+        {
+            using (var context = new Context())
+            {
+                var items = context.Routes.ToList();
+                RouteGrid.ItemsSource = items;
+            }
         }
     }
 }

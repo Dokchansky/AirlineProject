@@ -15,11 +15,11 @@ using System.Windows.Shapes;
 namespace AirlineProject.Windows
 {
     /// <summary>
-    /// Логика взаимодействия для UserWindow.xaml
+    /// Логика взаимодействия для AdminWindow.xaml
     /// </summary>
-    public partial class UserWindow : Window
+    public partial class AdminWindow : Window
     {
-        public UserWindow()
+        public AdminWindow()
         {
             InitializeComponent();
         }
@@ -34,15 +34,15 @@ namespace AirlineProject.Windows
 
         private void flight_Click(object sender, RoutedEventArgs e)
         {
-             Hide();
-             RouteWindow routeWindow = new RouteWindow();
-             Close();
-             routeWindow.Show();  
+            Hide();
+            RouteAdminWindow routeAdminWindow = new RouteAdminWindow();
+            Close();
+            routeAdminWindow.Show();
         }
 
         private void crew_Click(object sender, RoutedEventArgs e)
         {
-            
+
 
 
         }

@@ -5,8 +5,27 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AirlineProject.Windows"
         mc:Ignorable="d"
-        Title="RouteWindow" Height="450" Width="800">
+        Title="Информация о рейсах" 
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen"
+        Height="450" Width="1000">
     <Grid>
-        
+        <DataGrid x:Name="RouteGrid" AutoGenerateColumns="False" CanUserResizeColumns="False" IsReadOnly="True" Margin="8,86,35,86">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Номер рейса" CanUserReorder="False" Binding="{Binding numberRoute}"/>
+                <DataGridTextColumn Header="Направление" CanUserReorder="False" Binding="{Binding direction}"/>
+                <DataGridTextColumn Header="Первый пилот" CanUserReorder="False" Binding="{Binding firstPilot}"/>
+                <DataGridTextColumn Header="Второй пилот" CanUserReorder="False" Binding="{Binding secondPilot}"/>
+                <DataGridTextColumn Header="Стюардесса" CanUserReorder="False" Binding="{Binding stewardess}"/>
+                <DataGridTextColumn Header="Время вылета" CanUserReorder="False" Binding="{Binding dateTimeDeparture}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <StackPanel VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,41,0,0">
+            <TextBlock Text="Информация о рейсах" FontSize="15" Foreground="BlueViolet" FontFamily="Gill Sans Ultra Bold Condensed" />
+        </StackPanel>
+        <StackPanel Margin="305,368,-305,-368">
+            <Button x:Name="exitbutton" Click="exitbutton_Click" Content="Выход" Width="100" FontSize="16" FontFamily="Gill Sans Ultra Bold Condensed" Style="{DynamicResource MaterialDesignRaisedButton}"/>
+        </StackPanel>
     </Grid>
+
 </Window>

@@ -30,12 +30,14 @@ namespace AirlineProject
         {
             Hide();
             AuthWindow authWindow = new AuthWindow();
+            Close();
             authWindow.Show();
         }
         private void RegisterClick(object sender, RoutedEventArgs e)
         {
             Hide();
             RegisterWindow registerWindow = new RegisterWindow();
+            Close();
             registerWindow.Show();
 
         }

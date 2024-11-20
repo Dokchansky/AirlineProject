@@ -7,25 +7,25 @@
         mc:Ignorable="d"
         Title="Регистрация" Height="433" Width="330">
     <Grid>
-     
-        <StackPanel Width="180" Margin="66,46,65,-46">
-            <Label Content="Фамилия"/>
+
+        <StackPanel Width="180" Margin="75,10,75,230">
+            <Label Content="Фамилия" />
             <TextBox x:Name="user_surname"/>
             <Label Content="Имя"/>
             <TextBox x:Name="user_name"/>
             <Label Content="Отчество"/>
-            <TextBox x:Name="user_patronymic"/>
+            <TextBox x:Name="user_patronymic" />
         </StackPanel>
-        <StackPanel Margin="66,179,65,-179" Width="180">
+        <StackPanel Margin="75,192,75,151" Width="180">
             <Label Content="Логин"/>
             <TextBox x:Name="loginbox"/>
         </StackPanel>
-        <StackPanel Margin="66,223,65,-223" Width="180">
+        <StackPanel Margin="76,250,74,89" Width="180">
             <Label Content="Пароль"/>
             <PasswordBox x:Name="passwordbox"/>
         </StackPanel>
-        <StackPanel Height="417" VerticalAlignment="Top" Margin="0,293,0,0" >
-            <Button x:Name="registerbutton" Click="registerbutton_Click" Content="Регистрация" FontSize="16" FontFamily="Gill Sans Ultra Bold Condensed" Foreground="BlueViolet" Width="160"/>
+        <StackPanel Height="51" VerticalAlignment="Top" Margin="0,328,0,0" >
+            <Button x:Name="registerbutton" Click="registerbutton_Click" Content="Регистрация" Height="32" FontSize="14" FontFamily="Gill Sans Ultra Bold Condensed"  Width="131" Style="{DynamicResource MaterialDesignRaisedButton}"/>
         </StackPanel>
     </Grid>
 </Window>
