@@ -7,3 +7,36 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+using AirlineProject;
+using System;
+using System.Data.Entity;
+
+public class Context : DbContext
+{
+    public Context() : base("name=AirlineProjectEntities")
+    {
+    }
+
+    public virtual DbSet<Crew> Crews { get; set; }
+    public virtual DbSet<Post> Posts { get; set; }
+    public virtual DbSet<Role> Roles { get; set; }
+    public virtual DbSet<Route> Routes { get; set; }
+    public virtual DbSet<User> Users { get; set; }
+
+    protected override void OnModelCreating(DbModelBuilder modelBuilder)
+    {
+        // Настройка связей и ограничений
+
+        modelBuilder.Entity<Crew>()
+            .HasRequired(c => c.Post)
+            .WithMany(p => p.Crew)
+            .HasForeignKey(c => c.post_id);
+
+        modelBuilder.Entity<User>()
+            .HasRequired(u => u.Role)
+            .WithMany(r => r.User)
+            .HasForeignKey(u => u.role_id);
+
+        base.OnModelCreating(modelBuilder);
+    }
+}

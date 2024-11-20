@@ -42,7 +42,9 @@ namespace AirlineProject.Windows
 
         private void crew_Click(object sender, RoutedEventArgs e)
         {
-
+            Hide();
+            CrewAdminWindow crewAdminWindow = new CrewAdminWindow();
+            crewAdminWindow.Show();
 
 
         }

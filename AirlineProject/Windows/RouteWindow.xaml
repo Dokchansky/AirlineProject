@@ -17,7 +17,8 @@
                 <DataGridTextColumn Header="Первый пилот" CanUserReorder="False" Binding="{Binding firstPilot}"/>
                 <DataGridTextColumn Header="Второй пилот" CanUserReorder="False" Binding="{Binding secondPilot}"/>
                 <DataGridTextColumn Header="Стюардесса" CanUserReorder="False" Binding="{Binding stewardess}"/>
-                <DataGridTextColumn Header="Время вылета" CanUserReorder="False" Binding="{Binding dateTimeDeparture}"/>
+                <DataGridTextColumn Header="Дата вылета" CanUserReorder="False" Binding="{Binding dateDeparture}"/>
+                <DataGridTextColumn Header="Время вылета" CanUserReorder="False" Binding="{Binding timeDeparture}"/>
             </DataGrid.Columns>
         </DataGrid>
         <StackPanel VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,41,0,0">

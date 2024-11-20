@@ -4,14 +4,15 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="7312a05979794761919f10d4df516db7" Name="Diagram1">
-        <EntityTypeShape EntityType="AirlineProjectModel.Crew" Width="1.5" PointX="3" PointY="5" IsExpanded="true" />
-        <EntityTypeShape EntityType="AirlineProjectModel.Post" Width="1.5" PointX="0.75" PointY="5.5" IsExpanded="true" />
+      <Diagram DiagramId="4942d58ec2d04c79a023e686c2d08255" Name="Diagram1">
+        <EntityTypeShape EntityType="AirlineProjectModel.Crew" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AirlineProjectModel.Post" Width="1.5" PointX="2.75" PointY="4.75" IsExpanded="true" />
         <EntityTypeShape EntityType="AirlineProjectModel.Role" Width="1.5" PointX="0.75" PointY="1.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="AirlineProjectModel.Route" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AirlineProjectModel.Route" Width="1.5" PointX="4.75" PointY="4.75" IsExpanded="true" />
         <EntityTypeShape EntityType="AirlineProjectModel.User" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
-        <AssociationConnector Association="AirlineProjectModel.FK_Crew_Post" ManuallyRouted="false" />
         <AssociationConnector Association="AirlineProjectModel.FK_User_Role" ManuallyRouted="false" />
+        <AssociationConnector Association="AirlineProjectModel.FK_Crew_Post" />
+        <AssociationConnector Association="AirlineProjectModel.FK_Post_Post" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

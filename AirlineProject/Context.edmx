@@ -42,7 +42,7 @@
           <Property Name="secondPilot" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="stewardess" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="dateDeparture" Type="date" Nullable="false" />
-          <Property Name="timeDeparture" Type="time" Precision="7" />
+          <Property Name="timeDeparture" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="User">
           <Key>
@@ -56,6 +56,30 @@
           <Property Name="password" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="role_id" Type="int" Nullable="false" />
         </EntityType>
+        <Association Name="FK_Crew_Post">
+          <End Role="Post" Type="Self.Post" Multiplicity="1" />
+          <End Role="Crew" Type="Self.Crew" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Post">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Crew">
+              <PropertyRef Name="post_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Post_Post">
+          <End Role="Post" Type="Self.Post" Multiplicity="1" />
+          <End Role="Post1" Type="Self.Post" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Post">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Post1">
+              <PropertyRef Name="id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_User_Role">
           <End Role="Role" Type="Self.Role" Multiplicity="1" />
           <End Role="User" Type="Self.User" Multiplicity="*" />
@@ -74,6 +98,14 @@
           <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Route" EntityType="Self.Route" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Crew_Post" Association="Self.FK_Crew_Post">
+            <End Role="Post" EntitySet="Post" />
+            <End Role="Crew" EntitySet="Crew" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Post_Post" Association="Self.FK_Post_Post">
+            <End Role="Post" EntitySet="Post" />
+            <End Role="Post1" EntitySet="Post" />
+          </AssociationSet>
           <AssociationSet Name="FK_User_Role" Association="Self.FK_User_Role">
             <End Role="Role" EntitySet="Role" />
             <End Role="User" EntitySet="User" />
@@ -94,8 +126,8 @@
           <Property Name="post_id" Type="Int32" Nullable="false" />
           <Property Name="homeAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="homePhone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="Post" Relationship="Self.FK_Crew_Post" FromRole="Crew" ToRole="Post" />
-          <Property Name="fullname" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="fullname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Post" Relationship="AirlineProjectModel.FK_Crew_Post" FromRole="Crew" ToRole="Post" />
         </EntityType>
         <EntityType Name="Post">
           <Key>
@@ -103,7 +135,7 @@
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" />
           <Property Name="post_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="Crew" Relationship="Self.FK_Crew_Post" FromRole="Post" ToRole="Crew" />
+          <NavigationProperty Name="Crew" Relationship="AirlineProjectModel.FK_Crew_Post" FromRole="Post" ToRole="Crew" />
         </EntityType>
         <EntityType Name="Role">
           <Key>
@@ -123,7 +155,7 @@
           <Property Name="secondPilot" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="stewardess" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="dateDeparture" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="timeDeparture" Type="Time" Precision="7" />
+          <Property Name="timeDeparture" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
         </EntityType>
         <EntityType Name="User">
           <Key>
@@ -138,18 +170,6 @@
           <Property Name="role_id" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Role" Relationship="Self.FK_User_Role" FromRole="User" ToRole="Role" />
         </EntityType>
-        <Association Name="FK_Crew_Post">
-          <End Role="Post" Type="Self.Post" Multiplicity="1" />
-          <End Role="Crew" Type="Self.Crew" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Post">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="Crew">
-              <PropertyRef Name="post_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_User_Role">
           <End Role="Role" Type="Self.Role" Multiplicity="1" />
           <End Role="User" Type="Self.User" Multiplicity="*" />
@@ -162,31 +182,58 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="AirlineProjectEntities1" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="AirlineProjectEntities2" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Crew" EntityType="Self.Crew" />
           <EntitySet Name="Post" EntityType="Self.Post" />
           <EntitySet Name="Role" EntityType="Self.Role" />
           <EntitySet Name="Route" EntityType="Self.Route" />
           <EntitySet Name="User" EntityType="Self.User" />
-          <AssociationSet Name="FK_Crew_Post" Association="Self.FK_Crew_Post">
-            <End Role="Post" EntitySet="Post" />
-            <End Role="Crew" EntitySet="Crew" />
-          </AssociationSet>
           <AssociationSet Name="FK_User_Role" Association="Self.FK_User_Role">
             <End Role="Role" EntitySet="Role" />
             <End Role="User" EntitySet="User" />
           </AssociationSet>
+          <AssociationSet Name="FK_Crew_Post" Association="AirlineProjectModel.FK_Crew_Post">
+            <End Role="Post" EntitySet="Post" />
+            <End Role="Crew" EntitySet="Crew" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Post_Post" Association="AirlineProjectModel.FK_Post_Post">
+            <End Role="Post" EntitySet="Post" />
+            <End Role="Post1" EntitySet="Post" />
+          </AssociationSet>
         </EntityContainer>
+        <Association Name="FK_Crew_Post">
+          <End Type="AirlineProjectModel.Post" Role="Post" Multiplicity="1" />
+          <End Type="AirlineProjectModel.Crew" Role="Crew" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Post">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Crew">
+              <PropertyRef Name="post_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Post_Post">
+          <End Type="AirlineProjectModel.Post" Role="Post" Multiplicity="1" />
+          <End Type="AirlineProjectModel.Post" Role="Post1" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Post">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Post1">
+              <PropertyRef Name="id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Хранилище AirlineProjectModelContainer" CdmEntityContainer="AirlineProjectEntities1">
+        <EntityContainerMapping StorageEntityContainer="Хранилище AirlineProjectModelContainer" CdmEntityContainer="AirlineProjectEntities2">
           <EntitySetMapping Name="Crew">
             <EntityTypeMapping TypeName="AirlineProjectModel.Crew">
               <MappingFragment StoreEntitySet="Crew">
-                <ScalarProperty Name="fullname" ColumnName="fullname" />
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="surname" ColumnName="surname" />
                 <ScalarProperty Name="name" ColumnName="name" />
@@ -194,6 +241,7 @@
                 <ScalarProperty Name="post_id" ColumnName="post_id" />
                 <ScalarProperty Name="homeAddress" ColumnName="homeAddress" />
                 <ScalarProperty Name="homePhone" ColumnName="homePhone" />
+                <ScalarProperty Name="fullname" ColumnName="fullname" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -216,13 +264,13 @@
           <EntitySetMapping Name="Route">
             <EntityTypeMapping TypeName="AirlineProjectModel.Route">
               <MappingFragment StoreEntitySet="Route">
-                <ScalarProperty Name="timeDeparture" ColumnName="timeDeparture" />
-                <ScalarProperty Name="dateDeparture" ColumnName="dateDeparture" />
                 <ScalarProperty Name="numberRoute" ColumnName="numberRoute" />
                 <ScalarProperty Name="direction" ColumnName="direction" />
                 <ScalarProperty Name="firstPilot" ColumnName="firstPilot" />
                 <ScalarProperty Name="secondPilot" ColumnName="secondPilot" />
                 <ScalarProperty Name="stewardess" ColumnName="stewardess" />
+                <ScalarProperty Name="dateDeparture" ColumnName="dateDeparture" />
+                <ScalarProperty Name="timeDeparture" ColumnName="timeDeparture" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

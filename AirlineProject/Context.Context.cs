@@ -13,10 +13,10 @@ namespace AirlineProject
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class AirlineProjectEntities1 : DbContext
+    public partial class AirlineProjectEntities2 : DbContext
     {
-        public AirlineProjectEntities1()
-            : base("name=AirlineProjectEntities1")
+        public AirlineProjectEntities2()
+            : base("name=AirlineProjectEntities2")
         {
         }
     

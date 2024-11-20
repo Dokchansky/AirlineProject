@@ -20,6 +20,6 @@ namespace AirlineProject
         public string secondPilot { get; set; }
         public string stewardess { get; set; }
         public System.DateTime dateDeparture { get; set; }
-        public Nullable<System.TimeSpan> timeDeparture { get; set; }
+        public string timeDeparture { get; set; }
     }
 }

@@ -53,10 +53,11 @@ namespace AirlineProject.Windows
         {
             if (string.IsNullOrWhiteSpace(number_Route.Text) ||
                 string.IsNullOrWhiteSpace(direction_Route.Text) ||
+                string.IsNullOrWhiteSpace(timeDeparture.Text)||
                 first_pilot.SelectedItem == null ||
                 second_pilot.SelectedItem == null ||
                 stew_ardess.SelectedItem == null ||
-                DateTimeDeparture.SelectedTime == null)
+                DateDeparture.SelectedDate == null)
             {
                 MessageBox.Show("Пожалуйста, заполните все поля.");
                 return;
@@ -72,10 +73,14 @@ namespace AirlineProject.Windows
             {
                 numberRoute = numberRoute,
                 direction = direction_Route.Text,
-                firstPilot = ((Crew)first_pilot.SelectedItem).post_id.ToString(),
-                secondPilot = ((Crew)second_pilot.SelectedItem).post_id.ToString(),
-                stewardess = ((Crew)stew_ardess.SelectedItem).post_id.ToString(),
-                dateTimeDeparture = DateTimeDeparture.SelectedTime.Value
+                firstPilot = ((Crew)first_pilot.SelectedItem).fullname.ToString(),
+                secondPilot = ((Crew)second_pilot.SelectedItem).fullname.ToString(),
+                stewardess = ((Crew)stew_ardess.SelectedItem).fullname.ToString(),
+                dateDeparture = DateDeparture.SelectedDate.Value,
+                timeDeparture = timeDeparture.Text
+                
+                
+                
             };
 
             _context.Routes.Add(route);
@@ -89,10 +94,16 @@ namespace AirlineProject.Windows
             first_pilot.SelectedItem = null;
             second_pilot.SelectedItem = null;
             stew_ardess.SelectedItem = null;
-            DateTimeDeparture.SelectedTime = null;
+            DateDeparture.SelectedDate = null;
+            timeDeparture.Clear();
 
+            Hide();
+            RouteAdminWindow routeadminWindow = new RouteAdminWindow();
+            Close();
+            routeadminWindow.Show();
 
 
         }
+        
     }
 }

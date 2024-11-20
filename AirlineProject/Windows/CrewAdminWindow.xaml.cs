@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.Remoting.Contexts;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -16,25 +15,24 @@ using System.Windows.Shapes;
 namespace AirlineProject.Windows
 {
     /// <summary>
-    /// Логика взаимодействия для CrewWindow.xaml
+    /// Логика взаимодействия для CrewAdminWindow.xaml
     /// </summary>
-    public partial class CrewWindow : Window
+    public partial class CrewAdminWindow : Window
     {
-        public CrewWindow()
+        public CrewAdminWindow()
         {
             InitializeComponent();
+            InitializeComponent();
             LoadRoutes();
-            
+
         }
 
         private void exitbutton_Click(object sender, RoutedEventArgs e)
         {
-
             Hide();
-            UserWindow userWindow = new UserWindow();
+            AdminWindow adminWindow = new AdminWindow();
             Close();
-            userWindow.Show();
-            
+            adminWindow.Show();
         }
 
         private void LoadRoutes()

@@ -121,6 +121,9 @@
     <Compile Include="Windows\AdminWindow.xaml.cs">
       <DependentUpon>AdminWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Windows\CrewAdminWindow.xaml.cs">
+      <DependentUpon>CrewAdminWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\CrewWindow.xaml.cs">
       <DependentUpon>CrewWindow.xaml</DependentUpon>
     </Compile>
@@ -145,6 +148,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Windows\AuthWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\CrewAdminWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -227,14 +234,15 @@
   <ItemGroup>
     <Content Include="Context.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Context.edmx</DependentUpon>
       <LastGenOutput>Context.Context.cs</LastGenOutput>
+      <DependentUpon>Context.edmx</DependentUpon>
     </Content>
     <Content Include="Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Context.edmx</DependentUpon>
       <LastGenOutput>Context.cs</LastGenOutput>
     </Content>
+    <Resource Include="Windows\samolet.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

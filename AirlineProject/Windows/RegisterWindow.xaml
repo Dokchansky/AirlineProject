@@ -5,9 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AirlineProject.Windows"
         mc:Ignorable="d"
-        Title="Регистрация" Height="433" Width="330">
+        Title="Регистрация" Height="433" Width="330"
+        ResizeMode="NoResize"
+WindowStartupLocation="CenterScreen">
     <Grid>
-
+        <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Height="176" Margin="65,81,0,0" Width="211"  >
+            <Image Source="samolet.jpg" Width="178"/>
+        </StackPanel>
+        
         <StackPanel Width="180" Margin="75,10,75,230">
             <Label Content="Фамилия" />
             <TextBox x:Name="user_surname"/>

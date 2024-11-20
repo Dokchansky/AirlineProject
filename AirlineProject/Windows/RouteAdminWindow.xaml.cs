@@ -19,26 +19,55 @@ namespace AirlineProject.Windows
     /// </summary>
     public partial class RouteAdminWindow : Window
     {
+        private Context _context;
         public RouteAdminWindow()
         {
             InitializeComponent();
             LoadRoutes();
+            _context = new Context();
         }
 
         private void exitbutton_Click(object sender, RoutedEventArgs e)
         {
             Hide();
-            return;
+            AdminWindow adminWindow = new AdminWindow();
+            Close();
+            adminWindow.Show();
         }
 
         private void addbutton_Click(object sender, RoutedEventArgs e)
         {
-
+            Hide();
+            AddRouteWindow addRouteWindow = new AddRouteWindow();
+            Close();
+            addRouteWindow.Show();
         }
 
         private void deletebutton_Click(object sender, RoutedEventArgs e)
         {
+            var selectedRoute = RouteGrid.SelectedItem as Route;
 
+            if (selectedRoute != null)
+            {
+                
+                var routeToDelete = _context.Routes.FirstOrDefault(r => r.numberRoute == selectedRoute.numberRoute);
+
+                if (routeToDelete != null)
+                {
+                    _context.Routes.Remove(routeToDelete); 
+                    MessageBox.Show("Маршрут удален!");
+                    _context.SaveChanges(); 
+                    LoadRoutes(); 
+                }
+                else
+                {
+                    MessageBox.Show("Маршрут не найден в базе данных.");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Пожалуйста, выберите маршрут для удаления.");
+            }
         }
 
         private void LoadRoutes()
@@ -49,5 +78,7 @@ namespace AirlineProject.Windows
                 RouteGrid.ItemsSource = items;
             }
         }
+
+       
     }
 }

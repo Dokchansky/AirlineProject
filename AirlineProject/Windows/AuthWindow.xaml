@@ -6,9 +6,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AirlineProject.Windows"
         mc:Ignorable="d"
-        Title="Окно авторизации" Height="433" Width="311">
+        Title="Окно авторизации" Height="433" Width="311"
+        ResizeMode="NoResize"
+WindowStartupLocation="CenterScreen">
     <Grid>
-        <StackPanel Height="33" VerticalAlignment="Top"   RenderTransformOrigin="0.454,1.447" Margin="0,226,0,0">
+        <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Height="176" Margin="65,81,0,0" Width="211"  >
+            <Image Source="samolet.jpg" Width="178"/>
+        </StackPanel>
+        
+        <StackPanel Height="33" VerticalAlignment="Top"   RenderTransformOrigin="0.454,1.447" Margin="0,273,0,0">
             <Button Content="Авторизация" Click="LoginClick" Height="32" FontSize="14" FontFamily="Gill Sans Ultra Bold Condensed"  Width="131" Style="{DynamicResource MaterialDesignRaisedButton}"/>
         </StackPanel>
         <StackPanel Height="61" VerticalAlignment="Top" Margin="54,87,54,0"  >

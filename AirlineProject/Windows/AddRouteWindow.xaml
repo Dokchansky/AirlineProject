@@ -5,28 +5,32 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AirlineProject.Windows" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="AddRouteWindow" Height="433" Width="330">
+        Title="Добавление рейса" Height="533" Width="330"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen">
     <Grid>
-        <StackPanel Margin="75,10,64,80">
+        <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Height="176" Margin="65,81,0,0" Width="211"  >
+            <Image Source="samolet.jpg" Width="178"/>
+        </StackPanel>
+        <StackPanel Margin="75,10,64,127">
             <Label Content="Номер рейса" />
             <TextBox x:Name="number_Route"/>
             <Label Content="Направление"/>
             <TextBox x:Name="direction_Route"/>
             <Label Content="Первый пилот"/>
-            <ComboBox x:Name="first_pilot" >
-            </ComboBox>
+            <ComboBox x:Name="first_pilot" />
             <Label Content="Второй пилот" />
-            <ComboBox x:Name="second_pilot"  >
-            </ComboBox>
+            <ComboBox x:Name="second_pilot"  />
             <Label Content="Стюардесса"/>
-            <ComboBox x:Name="stew_ardess"  >
-            </ComboBox>
+            <ComboBox x:Name="stew_ardess"  />
+            <Label Content="Дата вылета"/>
+            <DatePicker x:Name="DateDeparture"/>
             <Label Content="Время вылета"/>
-            
-            <materialDesign:TimePicker x:Name="DateTimeDeparture"/>
+            <TextBox x:Name="timeDeparture"/>
         </StackPanel>
-        <StackPanel Height="51" VerticalAlignment="Top" Margin="0,328,0,0" >
+        <StackPanel Height="51" VerticalAlignment="Top" Margin="0,415,0,0" >
             <Button x:Name="registerbutton" Click="addbutton_Click" Content="Добавить" Height="32" FontSize="14" FontFamily="Gill Sans Ultra Bold Condensed"  Width="131" Style="{DynamicResource MaterialDesignRaisedButton}"/>
         </StackPanel>
+        
     </Grid>
 </Window>

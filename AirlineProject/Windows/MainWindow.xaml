@@ -9,6 +9,21 @@
         WindowStartupLocation="CenterScreen"
         Title="Главное меню" Height="450" Width="800">
     <Grid>
+        <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Height="176" Width="211"  >
+            <Image Source="samolet.jpg" Width="178" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform ScaleX="-1"/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+        </StackPanel>
+        <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Height="176" Margin="589,0,0,0" Width="211"  >
+            <Image Source="samolet.jpg" Width="178"/>
+        </StackPanel>
         <StackPanel Height="50" VerticalAlignment="Center"  Margin="316,0,316,0">
             <Button Content="Авторизация" Click="LoginClick" Height="32" FontSize="16" FontFamily="Gill Sans Ultra Bold Condensed" Style="{DynamicResource MaterialDesignRaisedButton}" Width="146"/>
         </StackPanel>

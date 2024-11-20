@@ -5,7 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AirlineProject.Windows"
         mc:Ignorable="d"
-        Title="Окно администратора" Height="450" Width="800">
+        Title="Окно администратора" Height="450" Width="800"
+        ResizeMode="NoResize"
+WindowStartupLocation="CenterScreen">
     <Grid>
         <StackPanel VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,21,0,0">
             <TextBlock Text="Окно администратора" FontSize="16" Foreground="BlueViolet" FontFamily="Gill Sans Ultra Bold Condensed" />
@@ -21,6 +23,21 @@
         </StackPanel>
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Top" Height="139" Margin="0,40,0,0" Width="172"  >
             <Image Source="image.png" Width="178"/>
+        </StackPanel>
+        <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Height="176" Width="211"  >
+            <Image Source="samolet.jpg" Width="178" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform ScaleX="-1"/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+        </StackPanel>
+        <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Height="176" Margin="589,0,0,0" Width="211"  >
+            <Image Source="samolet.jpg" Width="178"/>
         </StackPanel>
     </Grid>
 </Window>

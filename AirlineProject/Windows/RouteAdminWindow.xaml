@@ -5,7 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AirlineProject.Windows"
         mc:Ignorable="d"
-        Title="RouteAdminWindow" Height="450" Width="800">
+        Title="Информация о рейсах" Height="450" Width="800"
+        ResizeMode="NoResize"
+WindowStartupLocation="CenterScreen">
     <Grid>
         <DataGrid x:Name="RouteGrid" AutoGenerateColumns="False" CanUserResizeColumns="False" IsReadOnly="True" Margin="158,77,10,66">
             <DataGrid.Columns>
@@ -14,14 +16,15 @@
                 <DataGridTextColumn Header="Первый пилот" CanUserReorder="False" Binding="{Binding firstPilot}"/>
                 <DataGridTextColumn Header="Второй пилот" CanUserReorder="False" Binding="{Binding secondPilot}"/>
                 <DataGridTextColumn Header="Стюардесса" CanUserReorder="False" Binding="{Binding stewardess}"/>
-                <DataGridTextColumn Header="Время вылета" CanUserReorder="False" Binding="{Binding dateTimeDeparture}"/>
+                <DataGridTextColumn Header="Дата вылета" CanUserReorder="False" Binding="{Binding dateDeparture}"/>
+                <DataGridTextColumn Header="Время вылета" CanUserReorder="False" Binding="{Binding timeDeparture}"/>
             </DataGrid.Columns>
         </DataGrid>
         <StackPanel Margin="23,205,0,0" HorizontalAlignment="Left" VerticalAlignment="Top">
             <Button x:Name="exitbutton" Click="exitbutton_Click" Content="Выход" FontSize="16" FontFamily="Gill Sans Ultra Bold Condensed" Style="{DynamicResource MaterialDesignRaisedButton}" Width="116"/>
         </StackPanel>
         <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Margin="355,42,0,0">
-            <TextBlock Text="Информация о рейсе" FontSize="15" FontFamily="Gill Sans Ultra Bold Condensed" Foreground="BlueViolet"/>
+            <TextBlock Text="Информация о рейсах" FontSize="15" FontFamily="Gill Sans Ultra Bold Condensed" Foreground="BlueViolet"/>
         </StackPanel>
         <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Margin="23,129,0,0">
             <Button x:Name="addbutton" Click="addbutton_Click" Content="Добавить" FontSize="16" Style="{DynamicResource MaterialDesignRaisedButton}" FontFamily="Gill Sans Ultra Bold Condensed" Width="116"/>
